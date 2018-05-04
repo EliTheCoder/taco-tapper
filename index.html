@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title id="tabname">Taco Tapper</title>
+    <link rel="apple-touch-icon" sizes="57x57" href="faviz/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="faviz/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="faviz/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="faviz/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="faviz/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="faviz/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="faviz/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="faviz/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="faviz/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="faviz/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="faviz/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="faviz/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="faviz/favicon-16x16.png">
+    <link rel="manifest" href="faviz/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="faviz/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+    <style>
+    .center {
+      text-align: center;
+    }
+    @font-face {
+    font-family: Exo;
+    src: url(Exo-Regular.otf);
+    }
+    body {
+      background-color: #2D6658;
+    }
+    .exo {
+      font-family: Exo;
+      color: white;
+    }
+    #taco:active {
+      border-color: white;
+    }
+    #taco {
+      border-color: white;
+    }
+    .left {
+      text-align: left;
+    }
+    .right {
+      text-align: right;
+    }
+    .imgcenter {
+      display: block; 
+      margin-left: auto; 
+      margin-right: auto;
+    }
+    @font-face {
+    font-family: Quicksand;
+    src: url(Quicksand-Regular.otf);
+    }
+    button.q {
+      color: #99E26F;
+      border-color: #99E26F;
+    }
+    button {
+      font-family: Quicksand;
+      margin: 5px;
+      border-style: solid;
+      border-width: 2px;
+      border-radius: 5px;
+      background-color: #27564B;
+      color: white;
+      height: 120px;
+      width: 300px;
+    }
+    button.h {
+      color: #8577FF;
+      border-color: #8577FF;
+    }
+    </style>
+  </head>
+    <body>
+    <h1 id="title" class="center exo">Taco Tapper</h1>
+    <button><h1 class="center exo" onclick="taco.reset();">Reset</h1></button>
+    <hr style="color: gray;"/>
+    <br /><br />
+    <button class="center q" onclick="shop.buy(shop.grandpas, 1, grandpas);"><h1>Buy Grandpa</h1><h5>$<div id="grandpas">100</div> - 1 tps</h5></button>
+    <button class="center q" onclick="shop.buy(shop.stands, 1, stands);"><h1>Buy Stand</h1><h5>$<div id="stands">500</div> - 5 tps</h5></button>
+    <button class="center q" onclick="shop.buy(shop.trucks, 1, trucks);"><h1>Buy Truck</h1><h5>$<div id="trucks">1000</div> - 10 tps</h5></button>
+    <button class="center q" onclick="shop.buy(shop.shacks, 1, shacks);"><h1>Buy Shack</h1><h5>$<div id="shacks">5000</div> - 50 tps</h5></button>
+    <button class="center q" onclick="shop.buy(shop.counties, 1, counties);"><h1>Buy County</h1><h5>$<div id="counties">10000</div> - 100 tps</h5></button>
+    <button class="center q" onclick="shop.buy(shop.states, 1, states);"><h1>Buy State</h1><h5>$<div id="states">50000</div> - 500 tps</h5></button>
+    <button class="center q" onclick="shop.buy(shop.countries, 1, countries);"><h1>Buy Country</h1><h5>$<div id="countries">100000</div> - 1000 tps</h5></button>
+    <button class="center q" onclick="shop.buy(shop.planets, 1, planets);"><h1>Buy Planet</h1><h5>$<div id="planets">500000</div> - 5000 tps</h5></button>
+    <button class="center q" onclick="shop.buy(shop.solarsystems, 1, solarsystems);"><h1>Buy Solar System</h1><h5>$<div id="solarsystems">1000000</div> - 10000 tps</h5></button>
+    <button class="center q" onclick="shop.buy(shop.galaxies, 1, galaxies);"><h1>Buy Galaxy</h1><h5>$<div id="galaxies">5000000</div> - 50000 tps</h5></button>
+    <button class="center q" onclick="shop.buy(shop.universes, 1, universes);"><h1>Buy Universe</h1><h5>$<div id="universes">10000000</div> - 100000 tps</h5></button>
+    <button class="center q" onclick="shop.buy(shop.growthrays, 1, growthrays);"><h1>Buy Growth Ray</h1><h5>$<div id="growthrays">50000000</div> - 500000 tps</h5></button>
+    <button class="center q" onclick="shop.buy(shop.lettucelasers, 1, lettucelasers);"><h1>Buy Lettuce Laser</h1><h5>$<div id="lettucelasers">100000000</div> - 1000000 tps</h5></button>
+    <button class="center q" onclick="shop.buy(shop.meatmountains, 1, meatmountains);"><h1>Buy Meat Mountains</h1><h5>$<div id="meatmountains">500000000</div> - 5000000 tps</h5></button>
+    <br /><br />
+    <div onclick="taco.click();" id="taco"><img src="taco.png" class="imgcenter"></img></div>
+    <h4 class="exo">Require $1000 Purchase:</h4>
+    <button class="center h" onclick="boosts.buy(boosts.doubletappers, 1, doubletappers);"><h1>Buy Double Tapper</h1><h5>$10000 - +1 tpc - <div id="doubletappers">0</div></h5></button>
+    <button class="center h" onclick="boosts.buy(boosts.duplicators, 1, duplicators);"><h1>Buy Duplicator</h1><h5>$1000000 - +100 tpc - <div id="duplicators">0</div></h5></button>
+    <h3 class="center exo">Tacos: </h3><h1 id="tacocounter" class="center exo">0</h1>
+    <br />
+    <h3 class="center exo">TPS: </h3><h1 id="tpscounter" class="center exo">0</h1>
+    <h3 class="center exo">TPC: </h3><h1 id="tpccounter" class="center exo">0</h1>
+    <br />
+    <footer><h4 class="exo">v0.6</h4></footer>
+    <script src="main.js"></script>
+  </body>
+</html>
