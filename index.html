@@ -27,6 +27,7 @@
     body {
       background-color: #2D6658;
       font-family: 'Exo 2', sans-serif;
+      color: white;
     }
     #taco:active {
       border-color: white;
@@ -66,8 +67,8 @@
     </style>
   </head>
     <body>
-    <h1 id="title" class="center exo">Taco Tapper</h1>
-    <button><h1 class="center exo" onclick="taco.reset();">Reset</h1></button>
+    <h1 id="title" class="center">Taco Tapper</h1>
+    <button><h1 class="center" onclick="taco.reset();">Reset</h1></button>
     <hr style="color: gray;"/>
     <br /><br />
     <button class="center q" onclick="shop.buy(shop.grandpas, 1, grandpas);"><h1>Buy Grandpa</h1><h5>$<div id="grandpas">100</div> - 1 tps</h5></button>
@@ -86,15 +87,15 @@
     <button class="center q" onclick="shop.buy(shop.meatmountains, 1, meatmountains);"><h1>Buy Meat Mountains</h1><h5>$<div id="meatmountains">500000000</div> - 5000000 tps</h5></button>
     <br /><br />
     <div onclick="taco.click();" id="taco"><img src="taco.png" class="imgcenter"></img></div>
-    <h4 class="exo">Require $1000 Purchase:</h4>
+    <h4>Require $1000 Purchase:</h4>
     <button class="center h" onclick="boosts.buy(boosts.doubletappers, 1, doubletappers);"><h1>Buy Double Tapper</h1><h5>$10000 - +1 tpc - <div id="doubletappers">0</div></h5></button>
     <button class="center h" onclick="boosts.buy(boosts.duplicators, 1, duplicators);"><h1>Buy Duplicator</h1><h5>$1000000 - +100 tpc - <div id="duplicators">0</div></h5></button>
-    <h3 class="center exo">Tacos: </h3><h1 id="tacocounter" class="center exo">0</h1>
+    <h3 class="center">Tacos: </h3><h1 id="tacocounter" class="center">0</h1>
     <br />
-    <h3 class="center exo">TPS: </h3><h1 id="tpscounter" class="center exo">0</h1>
-    <h3 class="center exo">TPC: </h3><h1 id="tpccounter" class="center exo">0</h1>
+    <h3 class="center">TPS: </h3><h1 id="tpscounter" class="center">0</h1>
+    <h3 class="center">TPC: </h3><h1 id="tpccounter" class="center">0</h1>
     <br />
-    <footer><h4 class="exo">v0.6</h4></footer>
+    <footer><h4>v0.6</h4></footer>
     <script src="main.js"></script>
   </body>
 </html>
