@@ -24,6 +24,8 @@ var doubletappers = document.getElementById("doubletappers");
 var duplicators = document.getElementById("duplicators");
 // boost affordality
 var boostAfford = false;
+// last tacos value
+var lasttacos = 0;
 // defining taco (the main object of the code)
 var taco = {tacos: 0, el: document.getElementById("taco"), click: function() {this.tacos = this.tacos + boosts.tpc;}};
 // defining shop (things that make tacos for you)
@@ -52,8 +54,13 @@ boosts.doubletappers = {num: 1, cost: 10000, prod: 1};
 boosts.duplicators = {num: 1, cost: 1000000, prod: 100};
 // sending tacos, tps, and tpc to html
 setInterval(function(){
-  taco.tacos += shop.tps/100;
-  tacocounter.innerHTML = Math.floor(taco.tacos);
+  if (shop.tps > 0) {
+    taco.tacos += shop.tps/100;
+  }
+  if (lasttacos !== taco.tacos) {
+    tacocounter.innerHTML = Math.floor(taco.tacos);
+    lasttacos = taco.tacos;
+  }
   title.innerHTML = Math.floor(taco.tacos) + " Tacos";
 }, 10);
 setInterval(function(){tpscounter.innerHTML = shop.tps;}, 10);
