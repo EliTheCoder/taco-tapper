@@ -25,15 +25,13 @@ var greatgrandpas = document.getElementById("greatgrandpas");
 var doubletappers = document.getElementById("doubletappers");
 var duplicators = document.getElementById("duplicators");
 var energizers = document.getElementById("energizers");
-// boost affordality
-var boostAfford = false;
 // last tacos value
 var lasttacos = 0;
 // defining taco (the main object of the code)
 var taco = {tacos: 0, el: document.getElementById("taco"), click: function() {this.tacos = this.tacos + boosts.tpc;}};
 // defining shop (things that make tacos for you)
 var shop = {};
-shop.buy = function(item, amount, minus){if (taco.tacos >= item.cost) {item.num = item.num + amount; taco.tacos = taco.tacos - item.cost; this.tps = this.tps + item.prod; item.cost = Math.round(item.cost * 1.5); minus.innerHTML = item.cost;} if (item.cost >= 1000) {boostAfford = true;}};
+shop.buy = function(item, amount, minus){if (taco.tacos >= item.cost) {item.num = item.num + amount; taco.tacos = taco.tacos - item.cost; this.tps = this.tps + item.prod; item.cost = Math.round(item.cost * 1.5); minus.innerHTML = item.cost;}};
 shop.tps = 0;
 shop.grandpas =      {num: 1, cost: 100,       prod: 1};
 shop.stands =        {num: 1, cost: 500,       prod: 5}; 
@@ -53,7 +51,7 @@ shop.ionfusers =     {num: 1, cost: 1000000000,prod: 10000000};
 shop.greatgrandpas = {num: 1, cost: 5000000000,prod: 50000000};
 // defining boosts (things that give you more tpc)
 var boosts = {};
-boosts.buy = function(item, amount, minus) {if (taco.tacos >= item.cost * amount && boostAfford === true) {minus.innerHTML = item.num; item.num = item.num + amount; taco.tacos = taco.tacos - item.cost * amount; this.tpc = this.tpc + item.prod;}};
+boosts.buy = function(item, amount, minus) {if (taco.tacos >= item.cost * amount) {minus.innerHTML = item.num; item.num = item.num + amount; taco.tacos = taco.tacos - item.cost * amount; this.tpc = this.tpc + item.prod;}};
 boosts.tpc = 1;
 boosts.doubletappers = {num: 1, cost: 10000,     prod: 1};
 boosts.duplicators =   {num: 1, cost: 1000000,   prod: 100};
