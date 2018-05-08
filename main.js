@@ -19,9 +19,12 @@ var universes = document.getElementById("universes");
 var growthrays = document.getElementById("growthrays");
 var lettucelaser = document.getElementById("lettucelasers");
 var meatmountains = document.getElementById("meatmountains");
+var ionfusers = document.getElementById("ionfusers");
+var greatgrandpas = document.getElementById("greatgrandpas");
 // and now for the boosts
 var doubletappers = document.getElementById("doubletappers");
 var duplicators = document.getElementById("duplicators");
+var energizers = document.getElementById("energizers");
 // boost affordality
 var boostAfford = false;
 // last tacos value
@@ -46,12 +49,15 @@ shop.universes =     {num: 1, cost: 10000000,  prod: 100000};
 shop.growthrays =    {num: 1, cost: 50000000,  prod: 500000};
 shop.lettucelasers = {num: 1, cost: 100000000, prod: 1000000};
 shop.meatmountains = {num: 1, cost: 500000000, prod: 5000000};
+shop.ionfusers =     {num: 1, cost: 1000000000,prod: 10000000};
+shop.greatgrandpas = {num: 1, cost: 5000000000,prod: 50000000};
 // defining boosts (things that give you more tpc)
 var boosts = {};
 boosts.buy = function(item, amount, minus) {if (taco.tacos >= item.cost * amount && boostAfford === true) {minus.innerHTML = item.num; item.num = item.num + amount; taco.tacos = taco.tacos - item.cost * amount; this.tpc = this.tpc + item.prod;}};
 boosts.tpc = 1;
-boosts.doubletappers = {num: 1, cost: 10000, prod: 1};
-boosts.duplicators = {num: 1, cost: 1000000, prod: 100};
+boosts.doubletappers = {num: 1, cost: 10000,     prod: 1};
+boosts.duplicators =   {num: 1, cost: 1000000,   prod: 100};
+boosts.energizers =    {num: 1, cost: 100000000, prod: 10000};
 // sending tacos, tps, and tpc to html
 setInterval(function(){
   if (shop.tps > 0) {
@@ -61,18 +67,17 @@ setInterval(function(){
     tacocounter.innerHTML = Math.floor(taco.tacos);
     lasttacos = taco.tacos;
   }
-  title.innerHTML = Math.floor(taco.tacos) + " Tacos";
+  title.innerHTML = Math.floor(taco.tacos) + " Tacos - Taco Tapper";
 }, 10);
-setInterval(function(){tpscounter.innerHTML = shop.tps;}, 10);
-setInterval(function(){tpccounter.innerHTML = boosts.tpc;}, 1000);
+setInterval(function(){tpscounter.innerHTML = shop.tps;}, 100);
+setInterval(function(){tpccounter.innerHTML = boosts.tpc;}, 100);
 // saving tacos
 function save() {savePrice(); window.localStorage.tacos = parseInt(taco.tacos); window.localStorage.tps = parseInt(shop.tps); window.localStorage.tpc = parseInt(boosts.tpc);}
 function importSave() {importPrice(); taco.tacos = parseInt(window.localStorage.tacos); shop.tps = parseInt(window.localStorage.tps); boosts.tpc = parseInt(window.localStorage.tpc);}
-window.onload = function(){importSave();
-};
+window.onload = function(){if (window.localStorage.grandpas) {importSave();} };
 setInterval(function(){save();}, 30000);
 // super tacoz
-var supertacoz = false
+var supertacoz = false;
 // reset
 taco.reset = function(){taco.tacos = 0; boosts.tpc = 1; shop.tps = 0; resetPrice();};
 // keydowns
@@ -114,19 +119,21 @@ window.addEventListener("keyup", function(evt) {
 // saving prices
 function savePrice() {
   window.localStorage.grandpas = parseInt(shop.grandpas.cost);
-window.localStorage.stands = parseInt(shop.stands.cost);
-window.localStorage.trucks = parseInt(shop.trucks.cost);
-window.localStorage.shacks = parseInt(shop.shacks.cost);
-window.localStorage.counties = parseInt(shop.counties.cost);
-window.localStorage.states = parseInt(shop.states.cost);
-window.localStorage.countries = parseInt(shop.countries.cost);
-window.localStorage.planets = parseInt(shop.planets.cost);
-window.localStorage.solarsystems = parseInt(shop.solarsystems.cost);
-window.localStorage.galaxies = parseInt(shop.galaxies.cost);
-window.localStorage.universes = parseInt(shop.universes.cost);
-window.localStorage.growthrays = parseInt(shop.growthrays.cost);
-window.localStorage.lettucelasers = parseInt(shop.lettucelasers.cost);
-window.localStorage.meatmountains = parseInt(shop.meatmountains.cost);
+  window.localStorage.stands = parseInt(shop.stands.cost);
+  window.localStorage.trucks = parseInt(shop.trucks.cost);
+  window.localStorage.shacks = parseInt(shop.shacks.cost);
+  window.localStorage.counties = parseInt(shop.counties.cost);
+  window.localStorage.states = parseInt(shop.states.cost);
+  window.localStorage.countries = parseInt(shop.countries.cost);
+  window.localStorage.planets = parseInt(shop.planets.cost);
+  window.localStorage.solarsystems = parseInt(shop.solarsystems.cost);
+  window.localStorage.galaxies = parseInt(shop.galaxies.cost);
+  window.localStorage.universes = parseInt(shop.universes.cost);
+  window.localStorage.growthrays = parseInt(shop.growthrays.cost);
+  window.localStorage.lettucelasers = parseInt(shop.lettucelasers.cost);
+  window.localStorage.meatmountains = parseInt(shop.meatmountains.cost);
+  window.localStorage.ionfusers = parseInt(shop.ionfusers.cost);
+  window.localStorage.greatgrandpas = parseInt(shop.greatgrandpas.cost);
 }
 function importPrice() {
   shop.grandpas.cost = parseInt(window.localStorage.grandpas);
@@ -143,22 +150,25 @@ function importPrice() {
   shop.growthrays.cost = parseInt(window.localStorage.growthrays);
   shop.lettucelasers.cost = parseInt(window.localStorage.lettucelasers);
   shop.meatmountains.cost = parseInt(window.localStorage.meatmountains);
+  shop.ionfusers.cost = parseInt(window.localStorage.ionfusers);
+  shop.greatgrandpas.cost = parseInt(window.localStorage.greatgrandpas.cost);
 }
 // reset price
 function resetPrice() {
-shop.grandpas =      {num: 1, cost: 100,       prod: 1};
-shop.stands =        {num: 1, cost: 500,       prod: 5}; 
-shop.trucks =        {num: 1, cost: 1000,      prod: 10};
-shop.shacks =        {num: 1, cost: 5000,      prod: 50};
-shop.counties =      {num: 1, cost: 10000,     prod: 100};
-shop.states =        {num: 1, cost: 50000,     prod: 500};
-shop.countries =     {num: 1, cost: 100000,    prod: 1000};
-shop.planets =       {num: 1, cost: 500000,    prod: 5000};
-shop.solarsystems =  {num: 1, cost: 1000000,   prod: 10000};
-shop.galaxies =      {num: 1, cost: 5000000,   prod: 50000};
-shop.universes =     {num: 1, cost: 10000000,  prod: 100000};
-shop.growthrays =    {num: 1, cost: 50000000,  prod: 500000};
-shop.lettucelasers = {num: 1, cost: 100000000, prod: 1000000};
-shop.meatmountains = {num: 1, cost: 500000000, prod: 5000000};
-save();
+  shop.grandpas =      {num: 1, cost: 100,       prod: 1};
+  shop.stands =        {num: 1, cost: 500,       prod: 5}; 
+  shop.trucks =        {num: 1, cost: 1000,      prod: 10};
+  shop.shacks =        {num: 1, cost: 5000,      prod: 50};
+  shop.counties =      {num: 1, cost: 10000,     prod: 100};
+  shop.states =        {num: 1, cost: 50000,     prod: 500};
+  shop.countries =     {num: 1, cost: 100000,    prod: 1000};
+  shop.planets =       {num: 1, cost: 500000,    prod: 5000};
+  shop.solarsystems =  {num: 1, cost: 1000000,   prod: 10000};
+  shop.galaxies =      {num: 1, cost: 5000000,   prod: 50000};
+  shop.universes =     {num: 1, cost: 10000000,  prod: 100000};
+  shop.growthrays =    {num: 1, cost: 50000000,  prod: 500000};
+  shop.lettucelasers = {num: 1, cost: 100000000, prod: 1000000};
+  shop.meatmountains = {num: 1, cost: 500000000, prod: 5000000};
+  shop.ionfusers     = {num: 1, cost: 1000000000, prod: 10000000};
+  save();
 }
