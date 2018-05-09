@@ -76,6 +76,10 @@ function save() {savePrice(); window.localStorage.tacos = parseInt(taco.tacos); 
 function importSave() {importPrice(); taco.tacos = parseInt(window.localStorage.tacos); shop.tps = parseInt(window.localStorage.tps); boosts.tpc = parseInt(window.localStorage.tpc);}
 window.onload = function(){if (window.localStorage.grandpas) {importSave();} };
 setInterval(function(){save();}, 30000);
+// super tacoz
+var supertacoz = false;
+// reset
+taco.reset = function(){taco.tacos = 0; boosts.tpc = 1; shop.tps = 0; resetPrice();};
 // keydowns
 window.addEventListener("keydown", function(evt) {
   //defining all the keys
@@ -100,15 +104,17 @@ window.addEventListener("keydown", function(evt) {
   if (evt.keyCode == 56) {shop.buy(shop.planets, 1, planets);}
   //9
   if (evt.keyCode == 57) {shop.buy(shop.solarsystems, 1, solarsystems);}
+  // \
+  if (evt.keyCode == 220 && supertacoz === true) {supertacoz = false; alert("supertacoz off")}
+  elseif (evt.keyCode == 220 && supertacoz === false) {supertacoz = true; alert("supertacoz on")}
+  // [
+  if (evt.keyCode == 219 && supertacoz === true) {shop.tps = shop.tps * 2;}
 });
 //key ups
 window.addEventListener("keyup", function(evt) {
     // space
   if (evt.keyCode == 32) {taco.click();}
 });
-function prettyPrint(input) {
-  input.split();
-}
 // saving prices
 function savePrice() {
   window.localStorage.grandpas = parseInt(shop.grandpas.cost);
