@@ -25,6 +25,7 @@ var greatgrandpas = document.getElementById("greatgrandpas");
 var doubletappers = document.getElementById("doubletappers");
 var duplicators = document.getElementById("duplicators");
 var energizers = document.getElementById("energizers");
+var bajablasts = document.getElementById("bajablasts");
 // last tacos value
 var lasttacos = 0;
 // defining taco (the main object of the code)
@@ -53,9 +54,10 @@ shop.greatgrandpas = {num: 1, cost: 5000000000,prod: 50000000};
 var boosts = {};
 boosts.buy = function(item, amount, minus) {if (taco.tacos >= item.cost * amount) {minus.innerHTML = item.num; item.num = item.num + amount; taco.tacos = taco.tacos - item.cost * amount; this.tpc = this.tpc + item.prod;}};
 boosts.tpc = 1;
-boosts.doubletappers = {num: 1, cost: 10000,     prod: 1};
-boosts.duplicators =   {num: 1, cost: 1000000,   prod: 100};
-boosts.energizers =    {num: 1, cost: 100000000, prod: 10000};
+boosts.doubletappers = {num: 1, cost: 10000,       prod: 1};
+boosts.duplicators =   {num: 1, cost: 1000000,     prod: 100};
+boosts.energizers =    {num: 1, cost: 100000000,   prod: 10000};
+boosts.bajablasts =    {num: 1, cost: 10000000000, prod: 1000000};
 // sending tacos, tps, and tpc to html
 setInterval(function(){
   if (shop.tps > 0) {
