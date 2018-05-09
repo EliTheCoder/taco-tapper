@@ -64,10 +64,10 @@ setInterval(function(){
     taco.tacos += shop.tps/10;
   }
   if (lasttacos !== taco.tacos) {
-    tacocounter.innerHTML = Math.floor(taco.tacos);
+    tacocounter.innerHTML = prettyPrint(Math.floor(taco.tacos));
     lasttacos = taco.tacos;
   }
-  title.innerHTML = Math.floor(taco.tacos) + " Tacos - Taco Tapper";
+  title.innerHTML = prettyPrint(Math.floor(taco.tacos)) + " Tacos - Taco Tapper";
 }, 100);
 setInterval(function(){tpscounter.innerHTML = shop.tps;}, 100);
 setInterval(function(){tpccounter.innerHTML = boosts.tpc;}, 100);
@@ -76,8 +76,10 @@ function save() {savePrice(); window.localStorage.tacos = parseInt(taco.tacos); 
 function importSave() {importPrice(); taco.tacos = parseInt(window.localStorage.tacos); shop.tps = parseInt(window.localStorage.tps); boosts.tpc = parseInt(window.localStorage.tpc);}
 window.onload = function(){if (window.localStorage.grandpas) {importSave();} };
 setInterval(function(){save();}, 30000);
-// super tacoz
-var supertacoz = false;
+// add commas to number
+function prettyPrint(input) {
+  return input.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
 // reset
 taco.reset = function(){taco.tacos = 0; boosts.tpc = 1; shop.tps = 0; resetPrice();};
 // keydowns
