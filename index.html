@@ -37,6 +37,11 @@
       height: 104px;
       width: 240px;
     }
+    #buttons {
+      height: 150px;
+      width: 100px;
+      overflow: scroll;
+    }
     button.q {
       color: #99E26F;
       border-color: #99E26F;
@@ -66,26 +71,28 @@
     <button id="reset"><h1 class="center" onclick="resetPrice();">Reset</h1></button>
     <hr style="color: gray;"/>
     <br /><br />
-    <button class="center q" onclick="shop.buy(shop.grandpas, 1, grandpas);"><h1>Buy Grandpa</h1><h5>$<div id="grandpas">100</div> - 1 tps</h5></button>
-    <button class="center q" onclick="shop.buy(shop.stands, 1, stands);"><h1>Buy Stand</h1><h5>$<div id="stands">500</div> - 5 tps</h5></button>
-    <button class="center q" onclick="shop.buy(shop.trucks, 1, trucks);"><h1>Buy Truck</h1><h5>$<div id="trucks">1000</div> - 10 tps</h5></button>
-    <button class="center q" onclick="shop.buy(shop.shacks, 1, shacks);"><h1>Buy Shack</h1><h5>$<div id="shacks">5000</div> - 50 tps</h5></button>
-    <button class="center q" onclick="shop.buy(shop.counties, 1, counties);"><h1>Buy County</h1><h5>$<div id="counties">10000</div> - 100 tps</h5></button>
-    <button class="center q" onclick="shop.buy(shop.states, 1, states);"><h1>Buy State</h1><h5>$<div id="states">50000</div> - 500 tps</h5></button>
-    <button class="center q" onclick="shop.buy(shop.countries, 1, countries);"><h1>Buy Country</h1><h5>$<div id="countries">100000</div> - 1000 tps</h5></button>
-    <button class="center q" onclick="shop.buy(shop.planets, 1, planets);"><h1>Buy Planet</h1><h5>$<div id="planets">500000</div> - 5000 tps</h5></button>
-    <button class="center q" onclick="shop.buy(shop.solarsystems, 1, solarsystems);"><h1>Buy Solar System</h1><h5>$<div id="solarsystems">1000000</div> - 10000 tps</h5></button>
-    <button class="center q" onclick="shop.buy(shop.galaxies, 1, galaxies);"><h1>Buy Galaxy</h1><h5>$<div id="galaxies">5000000</div> - 50000 tps</h5></button>
-    <button class="center q" onclick="shop.buy(shop.universes, 1, universes);"><h1>Buy Universe</h1><h5>$<div id="universes">10000000</div> - 100000 tps</h5></button>
-    <button class="center q" onclick="shop.buy(shop.growthrays, 1, growthrays);"><h1>Buy Growth Ray</h1><h5>$<div id="growthrays">50000000</div> - 500000 tps</h5></button>
-    <button class="center q" onclick="shop.buy(shop.lettucelasers, 1, lettucelasers);"><h1>Buy Lettuce Laser</h1><h5>$<div id="lettucelasers">100000000</div> - 1000000 tps</h5></button>
-    <button class="center q" onclick="shop.buy(shop.meatmountains, 1, meatmountains);"><h1>Buy Meat Mountains</h1><h5>$<div id="meatmountains">500000000</div> - 5000000 tps</h5></button>
-    <button class="center q" onclick="shop.buy(shop.ionfusers, 1, ionfusers);"><h1>Buy Ion Fuser</h1><h5>$<div id="ionfusers">1000000000</div> - 10000000 tps</h5></button>
-    <button class="center q" onclick="shop.buy(shop.greatgrandpas, 1, greatgrandpas);"><h1>Buy Great Grandpa</h1><h5>$<div id="ionfusers">5000000000</div> - 50000000 tps</h5></button>
-    <button class="center h" onclick="boosts.buy(boosts.doubletappers, 1, doubletappers);"><h1>Buy Double Tapper</h1><h5>$10000 - +1 tpt - <div id="doubletappers">0</div></h5></button>
-    <button class="center h" onclick="boosts.buy(boosts.duplicators, 1, duplicators);"><h1>Buy Duplicator</h1><h5>$1000000 - +100 tpt - <div id="duplicators">0</div></h5></button>
-    <button class="center h" onclick="boosts.buy(boosts.energizers, 1, energizers);"><h1>Buy Energizer</h1><h5>$100000000 - +10000 tpt - <div id="energizers">0</div></h5></button>
-    <button class="center h" onclick="boosts.buy(boosts.bajablasts, 1, bajablasts);"><h1>Buy Baja Blast</h1><h5>$10000000000 - +1000000 tpt - <div id="bajablasts">0</div></h5></button>
+    <div id="buttons">
+      <button class="center q" onclick="shop.buy(shop.grandpas, 1, grandpas);"><h1>Buy Grandpa</h1><h5>$<div id="grandpas">100</div> - 1 tps</h5></button>
+      <button class="center q" onclick="shop.buy(shop.stands, 1, stands);"><h1>Buy Stand</h1><h5>$<div id="stands">500</div> - 5 tps</h5></button>
+      <button class="center q" onclick="shop.buy(shop.trucks, 1, trucks);"><h1>Buy Truck</h1><h5>$<div id="trucks">1,000</div> - 10 tps</h5></button>
+      <button class="center q" onclick="shop.buy(shop.shacks, 1, shacks);"><h1>Buy Shack</h1><h5>$<div id="shacks">5,000</div> - 50 tps</h5></button>
+      <button class="center q" onclick="shop.buy(shop.counties, 1, counties);"><h1>Buy County</h1><h5>$<div id="counties">10,000</div> - 100 tps</h5></button>
+      <button class="center q" onclick="shop.buy(shop.states, 1, states);"><h1>Buy State</h1><h5>$<div id="states">50,000</div> - 500 tps</h5></button>
+      <button class="center q" onclick="shop.buy(shop.countries, 1, countries);"><h1>Buy Country</h1><h5>$<div id="countries">100,000</div> - 1,000 tps</h5></button>
+      <button class="center q" onclick="shop.buy(shop.planets, 1, planets);"><h1>Buy Planet</h1><h5>$<div id="planets">500,000</div> - 5,000 tps</h5></button>
+      <button class="center q" onclick="shop.buy(shop.solarsystems, 1, solarsystems);"><h1>Buy Solar System</h1><h5>$<div id="solarsystems">1,000,000</div> - 10,000 tps</h5></button>
+      <button class="center q" onclick="shop.buy(shop.galaxies, 1, galaxies);"><h1>Buy Galaxy</h1><h5>$<div id="galaxies">5,000,000</div> - 50,000 tps</h5></button>
+      <button class="center q" onclick="shop.buy(shop.universes, 1, universes);"><h1>Buy Universe</h1><h5>$<div id="universes">10,000,000</div> - 100,000 tps</h5></button>
+      <button class="center q" onclick="shop.buy(shop.growthrays, 1, growthrays);"><h1>Buy Growth Ray</h1><h5>$<div id="growthrays">50,000,000</div> - 500,000 tps</h5></button>
+      <button class="center q" onclick="shop.buy(shop.lettucelasers, 1, lettucelasers);"><h1>Buy Lettuce Laser</h1><h5>$<div id="lettucelasers">100,000,000</div> - 1,000,000 tps</h5></button>
+      <button class="center q" onclick="shop.buy(shop.meatmountains, 1, meatmountains);"><h1>Buy Meat Mountains</h1><h5>$<div id="meatmountains">500,000,000</div> - 5,000,000 tps</h5></button>
+      <button class="center q" onclick="shop.buy(shop.ionfusers, 1, ionfusers);"><h1>Buy Ion Fuser</h1><h5>$<div id="ionfusers">1,000,000,000</div> - 10,000,000 tps</h5></button>
+      <button class="center q" onclick="shop.buy(shop.greatgrandpas, 1, greatgrandpas);"><h1>Buy Great Grandpa</h1><h5>$<div id="ionfusers">5,000,000,000</div> - 50,000,000 tps</h5></button>
+      <button class="center h" onclick="boosts.buy(boosts.doubletappers, 1, doubletappers);"><h1>Buy Double Tapper</h1><h5>$10,000 - +1 tpt - <div id="doubletappers">0</div></h5></button>
+      <button class="center h" onclick="boosts.buy(boosts.duplicators, 1, duplicators);"><h1>Buy Duplicator</h1><h5>$1,000,000 - +100 tpt - <div id="duplicators">0</div></h5></button>
+      <button class="center h" onclick="boosts.buy(boosts.energizers, 1, energizers);"><h1>Buy Energizer</h1><h5>$100,000,000 - +10,000 tpt - <div id="energizers">0</div></h5></button>
+      <button class="center h" onclick="boosts.buy(boosts.bajablasts, 1, bajablasts);"><h1>Buy Baja Blast</h1><h5>$10,000,000,000 - +1,000,000 tpt - <div id="bajablasts">0</div></h5></button>
+    </div>
     <br /><br />
     <div onclick="taco.click();" id="taco"><img src="taco.png" class="imgcenter"></img></div>
     <br />
@@ -94,7 +101,7 @@
     <h3 class="center">TPS: </h3><h1 id="tpscounter" class="center">0</h1>
     <h3 class="center">TPT: </h3><h1 id="tpccounter" class="center">0</h1>
     <br />
-    <footer><h4>v0.8</h4></footer>
+    <footer><h4>v0.8.1</h4></footer>
     <script src="main.js"></script>
   </body>
 </html>
