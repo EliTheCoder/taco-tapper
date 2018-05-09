@@ -47,6 +47,10 @@
       margin-left: auto; 
       margin-right: auto;
     }
+    #reset {
+      height: 52px;
+      width: 120px;
+    }
     button.q {
       color: #99E26F;
       border-color: #99E26F;
@@ -73,7 +77,7 @@
     <body>
     <h1 id="title" class="center">Taco Tapper</h1>
     <h4 class="center">By: Eli Frigo</h4>
-    <button><h1 class="center" onclick="resetPrice();">Reset</h1></button>
+    <button><h1 class="center" id="reset" onclick="resetPrice();">Reset</h1></button>
     <hr style="color: gray;"/>
     <br /><br />
     <button class="center q" onclick="shop.buy(shop.grandpas, 1, grandpas);"><h1>Buy Grandpa</h1><h5>$<div id="grandpas">100</div> - 1 tps</h5></button>
