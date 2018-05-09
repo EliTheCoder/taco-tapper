@@ -153,6 +153,9 @@ function importPrice() {
 }
 // reset price
 function resetPrice() {
+  taco.tacos = 0;
+  shop.tps = 0;
+  boosts.tpc = 1;
   shop.grandpas =      {num: 1, cost: 100,       prod: 1};
   shop.stands =        {num: 1, cost: 500,       prod: 5}; 
   shop.trucks =        {num: 1, cost: 1000,      prod: 10};
@@ -168,5 +171,6 @@ function resetPrice() {
   shop.lettucelasers = {num: 1, cost: 100000000, prod: 1000000};
   shop.meatmountains = {num: 1, cost: 500000000, prod: 5000000};
   shop.ionfusers     = {num: 1, cost: 1000000000, prod: 10000000};
+  localStorage.clear();
   save();
 }
