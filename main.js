@@ -59,14 +59,14 @@ boosts.energizers =    {num: 1, cost: 100000000, prod: 10000};
 // sending tacos, tps, and tpc to html
 setInterval(function(){
   if (shop.tps > 0) {
-    taco.tacos += shop.tps/100;
+    taco.tacos += shop.tps/10;
   }
   if (lasttacos !== taco.tacos) {
     tacocounter.innerHTML = Math.floor(taco.tacos);
     lasttacos = taco.tacos;
   }
   title.innerHTML = Math.floor(taco.tacos) + " Tacos - Taco Tapper";
-}, 10);
+}, 100);
 setInterval(function(){tpscounter.innerHTML = shop.tps;}, 100);
 setInterval(function(){tpccounter.innerHTML = boosts.tpc;}, 100);
 // saving tacos
