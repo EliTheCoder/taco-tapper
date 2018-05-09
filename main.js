@@ -107,8 +107,11 @@ window.addEventListener("keydown", function(evt) {
   //9
   if (evt.keyCode == 57) {shop.buy(shop.solarsystems, 1, solarsystems);}
   // \
-  if (evt.keyCode == 220 && supertacoz === true) {supertacoz = false; alert("supertacoz off")}
-  elseif (evt.keyCode == 220 && supertacoz === false) {supertacoz = true; alert("supertacoz on")}
+  if (evt.keyCode == 220 && supertacoz === true) {
+    supertacoz = false; alert("supertacoz off");
+  } else {if (evt.keyCode == 220 && supertacoz === false) {
+    supertacoz = true; alert("supertacoz on")
+  }}
   // [
   if (evt.keyCode == 219 && supertacoz === true) {shop.tps = shop.tps * 2;}
 });
