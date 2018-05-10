@@ -33,7 +33,7 @@ let lasttacos = 0;
 let taco = {tacos: 0, el: document.getElementById("taco"), click: function() {this.tacos = this.tacos + boosts.tpc;}};
 // defining shop (things that make tacos for you)
 let shop = {};
-shop.buy = function(item, amount, minus){if (taco.tacos >= item.cost) {item.num = item.num + amount; taco.tacos = taco.tacos - item.cost; this.tps = this.tps + item.prod; item.cost = Math.round(item.cost * 1.5); minus.innerHTML = item.cost;}};
+shop.buy = function(item, amount, minus){if (taco.tacos >= item.cost) {item.num = item.num + amount; taco.tacos = taco.tacos - item.cost; this.tps = this.tps + item.prod; item.cost = Math.round(item.cost * 1.5); minus.innerHTML = commaPrint(item.cost);}};
 shop.tps = 0;
 shop.grandpas =      {num: 1, cost: 100,       prod: 1};
 shop.stands =        {num: 1, cost: 500,       prod: 5}; 
@@ -53,7 +53,7 @@ shop.ionfusers =     {num: 1, cost: 1000000000,prod: 10000000};
 shop.greatgrandpas = {num: 1, cost: 5000000000,prod: 50000000};
 // defining boosts (things that give you more tpc)
 let boosts = {};
-boosts.buy = function(item, amount, minus) {if (taco.tacos >= item.cost * amount) {minus.innerHTML = item.num; item.num = item.num + amount; taco.tacos = taco.tacos - item.cost * amount; this.tpc = this.tpc + item.prod;}};
+boosts.buy = function(item, amount, minus) {if (taco.tacos >= item.cost * amount) {minus.innerHTML = commaPrint(item.num); item.num = item.num + amount; taco.tacos = taco.tacos - item.cost * amount; this.tpc = this.tpc + item.prod;}};
 boosts.tpc = 1;
 boosts.doubletappers = {num: 1, cost: 10000,       prod: 1};
 boosts.duplicators =   {num: 1, cost: 1000000,     prod: 100};
@@ -65,13 +65,13 @@ setInterval(function(){
     taco.tacos += shop.tps/10;
   }
   if (lasttacos !== taco.tacos) {
-    tacocounter.innerHTML = Math.floor(taco.tacos);
+    tacocounter.innerHTML = commaPrint(Math.floor(taco.tacos));
     lasttacos = taco.tacos;
   }
-  title.innerHTML = Math.floor(taco.tacos) + " Tacos - Taco Tapper";
+  title.innerHTML = commaPrint(Math.floor(taco.tacos)) + " Tacos - Taco Tapper";
 }, 100);
-setInterval(function(){tpscounter.innerHTML = shop.tps;}, 100);
-setInterval(function(){tpccounter.innerHTML = boosts.tpc;}, 100);
+setInterval(function(){tpscounter.innerHTML = commaPrint(shop.tps);}, 100);
+setInterval(function(){tpccounter.innerHTML = commaPrint(boosts.tpc);}, 100);
 // saving tacos
 function save() {savePrice(); window.localStorage.tacos = parseInt(taco.tacos); window.localStorage.tps = parseInt(shop.tps); window.localStorage.tpc = parseInt(boosts.tpc);}
 function importSave() {importPrice(); taco.tacos = parseInt(window.localStorage.tacos); shop.tps = parseInt(window.localStorage.tps); boosts.tpc = parseInt(window.localStorage.tpc);}
@@ -83,6 +83,9 @@ let supertacoz = false;
 function enterCode() {
   let pass = prompt("Enter Code:");
   socket.emit("entercode", pass);
+// add commas to number
+function commaPrint(input) {
+  return input.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
 // reset
 taco.reset = function(){taco.tacos = 0; boosts.tpc = 1; shop.tps = 0; resetPrice();};
@@ -111,8 +114,11 @@ window.addEventListener("keydown", function(evt) {
   //9
   if (evt.keyCode == 57) {shop.buy(shop.solarsystems, 1, solarsystems);}
   // \
-  if (evt.keyCode == 220 && supertacoz === true) {supertacoz = false; alert("supertacoz off")}
-  elseif (evt.keyCode == 220 && supertacoz === false) {supertacoz = true; alert("supertacoz on")}
+  if (evt.keyCode == 220 && supertacoz === true) {
+    supertacoz = false; alert("supertacoz off");
+  } else {if (evt.keyCode == 220 && supertacoz === false) {
+    supertacoz = true; alert("supertacoz on")
+  }}
   // [
   if (evt.keyCode == 219 && supertacoz === true) {shop.tps = shop.tps * 2;}
 });
