@@ -1,59 +1,58 @@
-const socket = io.connect("65.25.235.148");
 // getting elements
-let tacocounter = document.getElementById("tacocounter");
-let tpscounter = document.getElementById("tpscounter");
-let body = document.getElementById("body");
-let title = document.getElementById("tabname");
-let tpccounter = document.getElementById("tpccounter");
+var tacocounter = document.getElementById("tacocounter");
+var tpscounter = document.getElementById("tpscounter");
+var body = document.getElementById("body");
+var title = document.getElementById("tabname");
+var tpccounter = document.getElementById("tpccounter");
 // and now for the shop
-let grandpas = document.getElementById("grandpas");
-let stands = document.getElementById("stands");
-let trucks = document.getElementById("trucks");
-let shacks = document.getElementById("shacks");
-let counties = document.getElementById("counties");
-let states = document.getElementById("states");
-let countries = document.getElementById("countries");
-let planets = document.getElementById("planets");
-let solarsystems = document.getElementById("solarsystems");
-let galaxies = document.getElementById("galaxies");
-let universes = document.getElementById("universes");
-let growthrays = document.getElementById("growthrays");
-let lettucelaser = document.getElementById("lettucelasers");
-let meatmountains = document.getElementById("meatmountains");
-let ionfusers = document.getElementById("ionfusers");
-let greatgrandpas = document.getElementById("greatgrandpas");
+var grandpas = document.getElementById("grandpas");
+var stands = document.getElementById("stands");
+var trucks = document.getElementById("trucks");
+var shacks = document.getElementById("shacks");
+var counties = document.getElementById("counties");
+var states = document.getElementById("states");
+var countries = document.getElementById("countries");
+var planets = document.getElementById("planets");
+var solarsystems = document.getElementById("solarsystems");
+var galaxies = document.getElementById("galaxies");
+var universes = document.getElementById("universes");
+var growthrays = document.getElementById("growthrays");
+var lettucelaser = document.getElementById("lettucelasers");
+var meatmountains = document.getElementById("meatmountains");
+var ionfusers = document.getElementById("ionfusers");
+var greatgrandpas = document.getElementById("greatgrandpas");
 // and now for the boosts
-let doubletappers = document.getElementById("doubletappers");
-let duplicators = document.getElementById("duplicators");
-let energizers = document.getElementById("energizers");
-let bajablasts = document.getElementById("bajablasts");
+var doubletappers = document.getElementById("doubletappers");
+var duplicators = document.getElementById("duplicators");
+var energizers = document.getElementById("energizers");
+var bajablasts = document.getElementById("bajablasts");
 // last tacos value
-let lasttacos = 0;
+var lasttacos = 0;
 // defining taco (the main object of the code)
-let taco = {tacos: 0, el: document.getElementById("taco"), click: function() {this.tacos = this.tacos + boosts.tpc;}};
+var taco = {tacos: 0, el: document.getElementById("taco"), click: function() {this.tacos = this.tacos + boosts.tpc;}};
 // defining shop (things that make tacos for you)
-let shop = {};
-shop.buy = function(item, amount, minus){if (taco.tacos >= item.cost) {item.num = item.num + amount; taco.tacos = taco.tacos - item.cost; this.tps = this.tps + item.prod; item.cost = Math.round(item.cost * 1.5); minus.innerHTML = commaPrint(item.cost);}};
+var shop = {};
+shop.buy = function(item, amount, minus){if (taco.tacos >= item.cost) {item.num = item.num + amount; taco.tacos = taco.tacos - item.cost; this.tps = this.tps + item.prod; item.cost = Math.round(item.cost * 1.5); minus.innerHTML = item.cost;}};
 shop.tps = 0;
-shop.grandpas =      {num: 1, cost: 100,       prod: 1};
-shop.stands =        {num: 1, cost: 500,       prod: 5}; 
-shop.trucks =        {num: 1, cost: 1000,      prod: 10};
-shop.shacks =        {num: 1, cost: 5000,      prod: 50};
-shop.counties =      {num: 1, cost: 10000,     prod: 100};
-shop.states =        {num: 1, cost: 50000,     prod: 500};
-shop.countries =     {num: 1, cost: 100000,    prod: 1000};
-shop.planets =       {num: 1, cost: 500000,    prod: 5000};
-shop.solarsystems =  {num: 1, cost: 1000000,   prod: 10000};
-shop.galaxies =      {num: 1, cost: 5000000,   prod: 50000};
-shop.universes =     {num: 1, cost: 10000000,  prod: 100000};
-shop.growthrays =    {num: 1, cost: 50000000,  prod: 500000};
-shop.lettucelasers = {num: 1, cost: 100000000, prod: 1000000};
-shop.meatmountains = {num: 1, cost: 500000000, prod: 5000000};
-shop.ionfusers =     {num: 1, cost: 1000000000,prod: 10000000};
-shop.greatgrandpas = {num: 1, cost: 5000000000,prod: 50000000};
+shop.grandpas =      {num: 1, cost: 100,        prod: 1};
+shop.stands =        {num: 1, cost: 500,        prod: 5}; 
+shop.trucks =        {num: 1, cost: 1000,       prod: 10};
+shop.shacks =        {num: 1, cost: 5000,       prod: 50};
+shop.counties =      {num: 1, cost: 10000,      prod: 100};
+shop.states =        {num: 1, cost: 50000,      prod: 500};
+shop.countries =     {num: 1, cost: 100000,     prod: 1000};
+shop.planets =       {num: 1, cost: 500000,     prod: 5000};
+shop.solarsystems =  {num: 1, cost: 1000000,    prod: 10000};
+shop.galaxies =      {num: 1, cost: 5000000,    prod: 50000};
+shop.universes =     {num: 1, cost: 10000000,   prod: 100000};
+shop.growthrays =    {num: 1, cost: 50000000,   prod: 500000};
+shop.lettucelasers = {num: 1, cost: 100000000,  prod: 1000000};
+shop.meatmountains = {num: 1, cost: 500000000,  prod: 5000000};
+shop.ionfusers =     {num: 1, cost: 1000000000, prod: 10000000};
+shop.greatgrandpas = {num: 1, cost: 5000000000, prod: 50000000};
 // defining boosts (things that give you more tpc)
-let boosts = {};
-boosts.buy = function(item, amount, minus) {if (taco.tacos >= item.cost * amount) {minus.innerHTML = commaPrint(item.num); item.num = item.num + amount; taco.tacos = taco.tacos - item.cost * amount; this.tpc = this.tpc + item.prod;}};
+var boosts = {};
+boosts.buy = function(item, amount, minus) {if (taco.tacos >= item.cost * amount) {minus.innerHTML = item.num; item.num = item.num + amount; taco.tacos = taco.tacos - item.cost * amount; this.tpc = this.tpc + item.prod;}};
 boosts.tpc = 1;
 boosts.doubletappers = {num: 1, cost: 10000,       prod: 1};
 boosts.duplicators =   {num: 1, cost: 1000000,     prod: 100};
@@ -65,28 +64,20 @@ setInterval(function(){
     taco.tacos += shop.tps/10;
   }
   if (lasttacos !== taco.tacos) {
-    tacocounter.innerHTML = commaPrint(Math.floor(taco.tacos));
+    tacocounter.innerHTML = Math.floor(taco.tacos);
     lasttacos = taco.tacos;
   }
-  title.innerHTML = commaPrint(Math.floor(taco.tacos)) + " Tacos - Taco Tapper";
+  title.innerHTML = Math.floor(taco.tacos) + " Tacos - Taco Tapper";
 }, 100);
-setInterval(function(){tpscounter.innerHTML = commaPrint(shop.tps);}, 100);
-setInterval(function(){tpccounter.innerHTML = commaPrint(boosts.tpc);}, 100);
+setInterval(function(){tpscounter.innerHTML = shop.tps;}, 100);
+setInterval(function(){tpccounter.innerHTML = boosts.tpc;}, 100);
 // saving tacos
 function save() {savePrice(); window.localStorage.tacos = parseInt(taco.tacos); window.localStorage.tps = parseInt(shop.tps); window.localStorage.tpc = parseInt(boosts.tpc);}
 function importSave() {importPrice(); taco.tacos = parseInt(window.localStorage.tacos); shop.tps = parseInt(window.localStorage.tps); boosts.tpc = parseInt(window.localStorage.tpc);}
 window.onload = function(){if (window.localStorage.grandpas) {importSave();} };
 setInterval(function(){save();}, 30000);
 // super tacoz
-let supertacoz = false;
-// enter code
-function enterCode() {
-  let pass = prompt("Enter Code:");
-  socket.emit("entercode", pass);
-// add commas to number
-function commaPrint(input) {
-  return input.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-}
+var supertacoz = false;
 // reset
 taco.reset = function(){taco.tacos = 0; boosts.tpc = 1; shop.tps = 0; resetPrice();};
 // keydowns
@@ -114,11 +105,8 @@ window.addEventListener("keydown", function(evt) {
   //9
   if (evt.keyCode == 57) {shop.buy(shop.solarsystems, 1, solarsystems);}
   // \
-  if (evt.keyCode == 220 && supertacoz === true) {
-    supertacoz = false; alert("supertacoz off");
-  } else {if (evt.keyCode == 220 && supertacoz === false) {
-    supertacoz = true; alert("supertacoz on")
-  }}
+  if (evt.keyCode == 220 && supertacoz === true) {supertacoz = false; alert("supertacoz off")}
+  elseif (evt.keyCode == 220 && supertacoz === false) {supertacoz = true; alert("supertacoz on")}
   // [
   if (evt.keyCode == 219 && supertacoz === true) {shop.tps = shop.tps * 2;}
 });
@@ -184,6 +172,7 @@ function resetPrice() {
   shop.lettucelasers = {num: 1, cost: 100000000, prod: 1000000};
   shop.meatmountains = {num: 1, cost: 500000000, prod: 5000000};
   shop.ionfusers     = {num: 1, cost: 1000000000, prod: 10000000};
+  shop.greatgrandpas = {num: 1, cost: 5000000000, prod: 50000000};
   localStorage.clear();
   save();
 }
