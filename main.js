@@ -83,6 +83,7 @@ let supertacoz = false;
 function enterCode() {
   let pass = prompt("Enter Code:");
   socket.emit("entercode", pass);
+}
 // add commas to number
 function commaPrint(input) {
   return input.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
