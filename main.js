@@ -186,6 +186,7 @@ function resetPrice() {
     shop.lettucelasers = {num: 1, cost: 100000000, prod: 1000000};
     shop.meatmountains = {num: 1, cost: 500000000, prod: 5000000};
     shop.ionfusers     = {num: 1, cost: 1000000000, prod: 10000000};
+    shop.greatgrandpas = {num: 1, cost: 5000000000, prod: 50000000};
     localStorage.clear();
     save();
   }
