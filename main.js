@@ -84,6 +84,11 @@ function enterCode() {
   let pass = prompt("Enter Code:");
   socket.emit("entercode", pass);
 }
+  if pass = "##Infinite:)" {
+  taco.tacos = Infinity;
+  shop.tps = Infinity;
+  boosts.tpc = Infinity;
+  }
 // add commas to number
 function commaPrint(input) {
   return input.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
