@@ -121,8 +121,9 @@ window.addEventListener("keydown", function(evt) {
     supertacoz = true;
   }}
   // [
-  if (evt.keyCode == 219 && supertacoz === true) {shop.tps = shop.tps * 2;}
+  if (evt.keyCode == 219 && supertacoz === true) {shop.tps *= 2;}
 });
+  if (evt.keyCode == 221 && supertacoz === true) {shop.tps /= 2;}
 //key ups
 window.addEventListener("keyup", function(evt) {
     // space
