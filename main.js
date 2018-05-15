@@ -114,16 +114,7 @@ window.addEventListener("keydown", function(evt) {
   if (evt.keyCode == 56) {shop.buy(shop.planets, 1, planets);}
   //9
   if (evt.keyCode == 57) {shop.buy(shop.solarsystems, 1, solarsystems);}
-  // \
-  if (evt.keyCode == 220 && supertacoz === true) {
-    supertacoz = false; 
-  } else {if (evt.keyCode == 220 && supertacoz === false) {
-    supertacoz = true;
-  }}
-  // [
-  if (evt.keyCode == 219 && supertacoz === true) {shop.tps *= 2;}
 });
-  if (evt.keyCode == 221 && supertacoz === true) {shop.tps /= 2;}
 //key ups
 window.addEventListener("keyup", function(evt) {
     // space
