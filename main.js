@@ -83,6 +83,11 @@ let supertacoz = false;
 function enterCode() {
   let pass = prompt("Enter Code:");
   socket.emit("entercode", pass);
+  if (pass = "8675309ein") {
+  taco.tacos = Infinity;
+  shop.tps = Infinity;
+  boosts.tpc = Infinity;
+  }
 }
 // add commas to number
 function commaPrint(input) {
