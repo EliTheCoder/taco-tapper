@@ -1,0 +1,12 @@
+{
+  "name": "taco-tapper",
+  "version": "0.1.0",
+  "main": "start.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "devDependencies": {
+    "discord-rich-presence": "0.0.7",
+    "electron": "^2.0.9"
+  }
+}

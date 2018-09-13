@@ -35,22 +35,22 @@ let taco = {tacos: 0, el: document.getElementById("taco"), click: function() {th
 let shop = {};
 shop.buy = function(item, amount, minus){if (taco.tacos >= item.cost) {item.num = item.num + amount; taco.tacos = taco.tacos - item.cost; this.tps = this.tps + item.prod; item.cost = Math.round(item.cost * 1.5); minus.innerHTML = commaPrint(item.cost);}};
 shop.tps = 0;
-shop.grandpas =      {num: 1, cost: 100,        prod: 1};
-shop.stands =        {num: 1, cost: 500,        prod: 5}; 
-shop.trucks =        {num: 1, cost: 1000,       prod: 10};
-shop.shacks =        {num: 1, cost: 5000,       prod: 50};
-shop.counties =      {num: 1, cost: 10000,      prod: 100};
-shop.states =        {num: 1, cost: 50000,      prod: 500};
-shop.countries =     {num: 1, cost: 100000,     prod: 1000};
-shop.planets =       {num: 1, cost: 500000,     prod: 5000};
-shop.solarsystems =  {num: 1, cost: 1000000,    prod: 10000};
-shop.galaxies =      {num: 1, cost: 5000000,    prod: 50000};
-shop.universes =     {num: 1, cost: 10000000,   prod: 100000};
-shop.growthrays =    {num: 1, cost: 50000000,   prod: 500000};
-shop.lettucelasers = {num: 1, cost: 100000000,  prod: 1000000};
-shop.meatmountains = {num: 1, cost: 500000000,  prod: 5000000};
-shop.ionfusers =     {num: 1, cost: 1000000000, prod: 10000000};
-shop.greatgrandpas = {num: 1, cost: 5000000000, prod: 50000000};
+shop.grandpas =      {num: 1, cost: 100,       prod: 1};
+shop.stands =        {num: 1, cost: 500,       prod: 5}; 
+shop.trucks =        {num: 1, cost: 1000,      prod: 10};
+shop.shacks =        {num: 1, cost: 5000,      prod: 50};
+shop.counties =      {num: 1, cost: 10000,     prod: 100};
+shop.states =        {num: 1, cost: 50000,     prod: 500};
+shop.countries =     {num: 1, cost: 100000,    prod: 1000};
+shop.planets =       {num: 1, cost: 500000,    prod: 5000};
+shop.solarsystems =  {num: 1, cost: 1000000,   prod: 10000};
+shop.galaxies =      {num: 1, cost: 5000000,   prod: 50000};
+shop.universes =     {num: 1, cost: 10000000,  prod: 100000};
+shop.growthrays =    {num: 1, cost: 50000000,  prod: 500000};
+shop.lettucelasers = {num: 1, cost: 100000000, prod: 1000000};
+shop.meatmountains = {num: 1, cost: 500000000, prod: 5000000};
+shop.ionfusers =     {num: 1, cost: 1000000000,prod: 10000000};
+shop.greatgrandpas = {num: 1, cost: 5000000000,prod: 50000000};
 // defining boosts (things that give you more tpc)
 let boosts = {};
 boosts.buy = function(item, amount, minus) {if (taco.tacos >= item.cost * amount) {minus.innerHTML = commaPrint(item.num); item.num = item.num + amount; taco.tacos = taco.tacos - item.cost * amount; this.tpc = this.tpc + item.prod;}};
@@ -114,6 +114,14 @@ window.addEventListener("keydown", function(evt) {
   if (evt.keyCode == 56) {shop.buy(shop.planets, 1, planets);}
   //9
   if (evt.keyCode == 57) {shop.buy(shop.solarsystems, 1, solarsystems);}
+  // \
+  if (evt.keyCode == 220 && supertacoz === true) {
+    supertacoz = false; alert("supertacoz off");
+  } else {if (evt.keyCode == 220 && supertacoz === false) {
+    supertacoz = true; alert("supertacoz on")
+  }}
+  // [
+  if (evt.keyCode == 219 && supertacoz === true) {shop.tps = shop.tps * 2;}
 });
 //key ups
 window.addEventListener("keyup", function(evt) {
@@ -163,20 +171,20 @@ function resetPrice() {
     taco.tacos = 0;
     shop.tps = 0;
     boosts.tpc = 1;
-    shop.grandpas =      {num: 1, cost: 100,        prod: 1};
-    shop.stands =        {num: 1, cost: 500,        prod: 5}; 
-    shop.trucks =        {num: 1, cost: 1000,       prod: 10};
-    shop.shacks =        {num: 1, cost: 5000,       prod: 50};
-    shop.counties =      {num: 1, cost: 10000,      prod: 100};
-    shop.states =        {num: 1, cost: 50000,      prod: 500};
-    shop.countries =     {num: 1, cost: 100000,     prod: 1000};
-    shop.planets =       {num: 1, cost: 500000,     prod: 5000};
-    shop.solarsystems =  {num: 1, cost: 1000000,    prod: 10000};
-    shop.galaxies =      {num: 1, cost: 5000000,    prod: 50000};
-    shop.universes =     {num: 1, cost: 10000000,   prod: 100000};
-    shop.growthrays =    {num: 1, cost: 50000000,   prod: 500000};
-    shop.lettucelasers = {num: 1, cost: 100000000,  prod: 1000000};
-    shop.meatmountains = {num: 1, cost: 500000000,  prod: 5000000};
+    shop.grandpas =      {num: 1, cost: 100,       prod: 1};
+    shop.stands =        {num: 1, cost: 500,       prod: 5}; 
+    shop.trucks =        {num: 1, cost: 1000,      prod: 10};
+    shop.shacks =        {num: 1, cost: 5000,      prod: 50};
+    shop.counties =      {num: 1, cost: 10000,     prod: 100};
+    shop.states =        {num: 1, cost: 50000,     prod: 500};
+    shop.countries =     {num: 1, cost: 100000,    prod: 1000};
+    shop.planets =       {num: 1, cost: 500000,    prod: 5000};
+    shop.solarsystems =  {num: 1, cost: 1000000,   prod: 10000};
+    shop.galaxies =      {num: 1, cost: 5000000,   prod: 50000};
+    shop.universes =     {num: 1, cost: 10000000,  prod: 100000};
+    shop.growthrays =    {num: 1, cost: 50000000,  prod: 500000};
+    shop.lettucelasers = {num: 1, cost: 100000000, prod: 1000000};
+    shop.meatmountains = {num: 1, cost: 500000000, prod: 5000000};
     shop.ionfusers     = {num: 1, cost: 1000000000, prod: 10000000};
     shop.greatgrandpas = {num: 1, cost: 5000000000, prod: 50000000};
     localStorage.clear();
