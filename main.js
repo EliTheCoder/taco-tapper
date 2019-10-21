@@ -131,22 +131,22 @@ window.addEventListener("keyup", function(evt) {
 });
 // saving prices
 function savePrice() {
-  window.localStorage.grandpas = parseInt(shop.grandpas.cost);
-  window.localStorage.stands = parseInt(shop.stands.cost);
-  window.localStorage.trucks = parseInt(shop.trucks.cost);
-  window.localStorage.shacks = parseInt(shop.shacks.cost);
-  window.localStorage.counties = parseInt(shop.counties.cost);
-  window.localStorage.states = parseInt(shop.states.cost);
-  window.localStorage.countries = parseInt(shop.countries.cost);
-  window.localStorage.planets = parseInt(shop.planets.cost);
-  window.localStorage.solarsystems = parseInt(shop.solarsystems.cost);
-  window.localStorage.galaxies = parseInt(shop.galaxies.cost);
-  window.localStorage.universes = parseInt(shop.universes.cost);
-  window.localStorage.growthrays = parseInt(shop.growthrays.cost);
-  window.localStorage.lettucelasers = parseInt(shop.lettucelasers.cost);
-  window.localStorage.meatmountains = parseInt(shop.meatmountains.cost);
-  window.localStorage.ionfusers = parseInt(shop.ionfusers.cost);
-  window.localStorage.greatgrandpas = parseInt(shop.greatgrandpas.cost);
+  window.localStorage.grandpas = "" + (shop.grandpas.cost);
+  window.localStorage.stands = "" + (shop.stands.cost);
+  window.localStorage.trucks = "" + (shop.trucks.cost);
+  window.localStorage.shacks = "" + (shop.shacks.cost);
+  window.localStorage.counties = "" + (shop.counties.cost);
+  window.localStorage.states = "" + (shop.states.cost);
+  window.localStorage.countries = "" + (shop.countries.cost);
+  window.localStorage.planets = "" + (shop.planets.cost);
+  window.localStorage.solarsystems = "" + (shop.solarsystems.cost);
+  window.localStorage.galaxies = "" + (shop.galaxies.cost);
+  window.localStorage.universes = "" + (shop.universes.cost);
+  window.localStorage.growthrays = "" + (shop.growthrays.cost);
+  window.localStorage.lettucelasers = "" + (shop.lettucelasers.cost);
+  window.localStorage.meatmountains = "" + (shop.meatmountains.cost);
+  window.localStorage.ionfusers = "" + (shop.ionfusers.cost);
+  window.localStorage.greatgrandpas = "" + (shop.greatgrandpas.cost);
 }
 function importPrice() {
   shop.grandpas.cost = parseInt(window.localStorage.grandpas);
