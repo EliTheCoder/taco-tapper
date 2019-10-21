@@ -50,7 +50,7 @@ shop.growthrays =    {num: 1, cost: 50000000,  prod: 500000};
 shop.lettucelasers = {num: 1, cost: 100000000, prod: 1000000};
 shop.meatmountains = {num: 1, cost: 500000000, prod: 5000000};
 shop.ionfusers =     {num: 1, cost: 1000000000,prod: 10000000};
-shop.greatgrandpas = {num: 1, cost: 5000000000,prod: 50000000};
+shop.greatgrandpas = {num: 1, cost: 1000000000*5,prod: 50000000};
 // defining boosts (things that give you more tpc)
 let boosts = {};
 boosts.buy = function(item, amount, minus) {if (taco.tacos >= item.cost * amount) {minus.innerHTML = commaPrint(item.num); item.num = item.num + amount; taco.tacos = taco.tacos - item.cost * amount; this.tpc = this.tpc + item.prod;}};
