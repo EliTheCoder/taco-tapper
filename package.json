@@ -7,6 +7,6 @@
   },
   "devDependencies": {
     "discord-rich-presence": "0.0.7",
-    "electron": "^2.0.9"
+    "electron": "^18.3.7"
   }
 }
